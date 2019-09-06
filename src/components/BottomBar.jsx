@@ -8,6 +8,8 @@ import ReplayIcon from '@material-ui/icons/Replay';
 import InfoIcon from '@material-ui/icons/Info';
 import ShuffleIcon from '@material-ui/icons/Shuffle';
 import { Grid } from '@material-ui/core';
+import shuffle from 'shuffle-array';
+import { fetchUrls } from '../utils';
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -31,8 +33,22 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function BottomBar() {
+export default function BottomBar(props) {
   const classes = useStyles();
+
+  const { imageUrls, setImageUrls, setLoading } = props;
+
+  function shuffleHandler() {
+    setImageUrls(shuffle(imageUrls, { copy: true }));
+  }
+
+  function reloadHandler() {
+    setLoading(true);
+    fetchUrls().then(newUrls => {
+      setImageUrls(newUrls);
+      setLoading(false);
+    });
+  }
 
   return (
     <React.Fragment>
@@ -49,10 +65,11 @@ export default function BottomBar() {
               color="secondary"
               aria-label="add"
               className={classes.fabButton}
+              onClick={reloadHandler}
             >
               <ReplayIcon />
             </Fab>
-            <IconButton color="inherit">
+            <IconButton onClick={shuffleHandler} color="inherit">
               <ShuffleIcon />
             </IconButton>
           </Grid>
