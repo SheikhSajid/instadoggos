@@ -10,6 +10,7 @@ import { Grid } from '@material-ui/core';
 import shuffle from 'shuffle-array';
 import { fetchUrls } from '../utils';
 import InfoModal from './InfoModal';
+import Tooltip from '@material-ui/core/Tooltip';
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -59,17 +60,22 @@ export default function BottomBar(props) {
         <Toolbar>
           <Grid container justify="center">
             <InfoModal />
-            <Fab
-              color="secondary"
-              aria-label="add"
-              className={classes.fabButton}
-              onClick={reloadHandler}
-            >
-              <ReplayIcon />
-            </Fab>
-            <IconButton onClick={shuffleHandler} color="inherit">
-              <ShuffleIcon />
-            </IconButton>
+            <Tooltip title="See New Doggos">
+              <Fab
+                color="secondary"
+                aria-label="add"
+                className={classes.fabButton}
+                onClick={reloadHandler}
+              >
+                <ReplayIcon />
+              </Fab>
+            </Tooltip>
+
+            <Tooltip title="Shuffle">
+              <IconButton onClick={shuffleHandler} color="inherit">
+                <ShuffleIcon />
+              </IconButton>
+            </Tooltip>
           </Grid>
         </Toolbar>
       </AppBar>

@@ -5,6 +5,7 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
+import Tooltip from '@material-ui/core/Tooltip';
 
 const useStyles = makeStyles(theme => ({
   modal: {
@@ -34,9 +35,11 @@ export default function TransitionsModal() {
 
   return (
     <div>
-      <IconButton onClick={handleOpen} color="inherit">
-        <InfoIcon />
-      </IconButton>
+      <Tooltip title="Info">
+        <IconButton onClick={handleOpen} color="inherit">
+          <InfoIcon />
+        </IconButton>
+      </Tooltip>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
