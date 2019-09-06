@@ -1,23 +1,25 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
-  image: {
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
-    width: '200px',
-    height: '200px'
-  },
-  thumb: {
-    width: '200px',
-    height: '200px',
-    overflow: 'hidden'
-  },
-  vid: {
-    width: '200px',
-    height: '200px'
-  }
+const useStyles = makeStyles(theme => {
+  const desktopDimensions = '200px';
+  const phoneDimensions = '320px';
+  return {
+    image: {
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+      overflow: 'hidden'
+    },
+    thumb: {
+      width: desktopDimensions,
+      height: desktopDimensions,
+      [theme.breakpoints.down('sm')]: {
+        width: phoneDimensions,
+        height: phoneDimensions
+      }
+    }
+  };
 });
 
 function ImageContainer(props) {
@@ -26,7 +28,7 @@ function ImageContainer(props) {
   return (
     <div
       {...props}
-      className={classes.image}
+      className={`${classes.image} ${classes.thumb}`}
       style={{ backgroundImage: `url(${props.url})` }}
     ></div>
   );
@@ -36,11 +38,9 @@ function VideoContainer(props) {
   const classes = useStyles();
 
   return (
-    <div {...props} className={classes.thumb}>
-      <video className={classes.vid} preload="none" muted autoPlay loop>
-        <source id="mp4" src={props.url} type="video/mp4"></source>
-      </video>
-    </div>
+    <video className={classes.thumb} preload="none" muted autoPlay loop>
+      <source id="mp4" src={props.url} type="video/mp4"></source>
+    </video>
   );
 }
 

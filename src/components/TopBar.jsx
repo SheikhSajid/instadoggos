@@ -1,24 +1,9 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import {
-  AppBar,
-  Container,
-  Toolbar,
-  Typography,
-  Grid
-} from '@material-ui/core';
-
-const useStyles = makeStyles(theme => ({
-  topBar: {
-    marginBottom: theme.spacing(3)
-  }
-}));
+import { AppBar, Toolbar, Typography } from '@material-ui/core';
 
 export default function TopBar(props) {
-  const classes = useStyles();
-
   return (
-    <AppBar {...props} className={classes.topBar} position="static">
+    <AppBar {...props} position="static">
       <Toolbar variant="dense">
         <Typography variant="h6" color="inherit">
           Instadoggos

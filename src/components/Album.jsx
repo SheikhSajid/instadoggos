@@ -6,31 +6,30 @@ import Thumbnail from './Thumbnail';
 const useStyles = makeStyles(theme => ({
   media: {
     marginBottom: theme.spacing(3)
+  },
+  container: {
+    paddingTop: theme.spacing(3),
+    paddingBottom: theme.spacing(9)
   }
 }));
-
-function Media(props) {
-  return (
-    <Grid {...props} item md={3} sm={12}>
-      <Thumbnail url={props.url} />
-    </Grid>
-  );
-}
 
 export default function Album({ imageUrls }) {
   const classes = useStyles();
   return (
-    <Container maxWidth="md">
+    <Container className={classes.container} maxWidth="md">
       <Grid container>
-        {/* <Grid item md={3} sm={12}>
-          <Thumbnail url={imageUrls[0]} />
-        </Grid>
-
-        <Grid item md={3} sm={12}>
-          <Thumbnail url={imageUrls[1]} />
-        </Grid> */}
         {imageUrls.map(url => (
-          <Media key={url} url={url} className={classes.media} />
+          <Grid
+            container
+            justify="center"
+            key={url}
+            className={classes.media}
+            item
+            sm={12}
+            md={3}
+          >
+            <Thumbnail url={url} />
+          </Grid>
         ))}
       </Grid>
     </Container>
