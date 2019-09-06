@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography } from '@material-ui/core';
+import { Container, AppBar, Toolbar, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
@@ -25,9 +25,11 @@ export default function TopBar(props) {
       className={`${classes.whiteBg} ${classes.appBar}`}
     >
       <Toolbar variant="dense">
-        <Typography variant="h6" color="inherit">
-          Instadoggos
-        </Typography>
+        <Container maxWidth="md">
+          <Typography variant="h6" color="inherit">
+            Instadoggos
+          </Typography>
+        </Container>
       </Toolbar>
     </AppBar>
   );
