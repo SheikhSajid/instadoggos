@@ -12,7 +12,9 @@ import { Grid } from '@material-ui/core';
 const useStyles = makeStyles(theme => ({
   appBar: {
     top: 'auto',
-    bottom: 0
+    bottom: 0,
+    boxShadow: 'none',
+    borderTop: '1px solid #ededed'
   },
   grow: {
     flexGrow: 1
@@ -20,7 +22,12 @@ const useStyles = makeStyles(theme => ({
   fabButton: {
     position: 'relative',
     zIndex: 1,
-    top: -30
+    top: -30,
+    background: 'linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%)'
+  },
+  whiteBg: {
+    backgroundColor: 'white',
+    color: '#a1a1a1'
   }
 }));
 
@@ -29,7 +36,10 @@ export default function BottomBar() {
 
   return (
     <React.Fragment>
-      <AppBar position="fixed" color="primary" className={classes.appBar}>
+      <AppBar
+        position="fixed"
+        className={`${classes.appBar} ${classes.whiteBg}`}
+      >
         <Toolbar>
           <Grid container justify="center">
             <IconButton color="inherit">
