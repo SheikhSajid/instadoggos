@@ -2,16 +2,18 @@ import React from 'react';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   whiteBg: {
     backgroundColor: 'white',
     color: 'black'
   },
-  shadowFix: {
+  appBar: {
     boxShadow: 'none',
-    borderBottom: '1px solid #ededed'
+    borderBottom: '1px solid #ededed',
+    paddingTop: theme.spacing(1),
+    paddingBottom: theme.spacing(1)
   }
-});
+}));
 
 export default function TopBar(props) {
   const classes = useStyles();
@@ -20,7 +22,7 @@ export default function TopBar(props) {
     <AppBar
       {...props}
       position="static"
-      className={`${classes.whiteBg} ${classes.shadowFix}`}
+      className={`${classes.whiteBg} ${classes.appBar}`}
     >
       <Toolbar variant="dense">
         <Typography variant="h6" color="inherit">
