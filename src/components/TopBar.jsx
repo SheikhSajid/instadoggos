@@ -1,22 +1,35 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
+import {
+  AppBar,
+  Container,
+  Toolbar,
+  Typography,
+  Grid
+} from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
-  text: {
-    padding: theme.spacing(2, 2)
+  root: {
+    flexGrow: 1
   }
 }));
 
-export default function BottomBar() {
+export default function DenseAppBar() {
   const classes = useStyles();
 
   return (
-    <Paper square>
-      <Typography className={classes.text} variant="h5">
-        Random Doggos
-      </Typography>
-    </Paper>
+    <Container maxWidth="xl">
+      <Grid item sm={12}>
+        <div className={classes.root}>
+          <AppBar position="static">
+            <Toolbar variant="dense">
+              <Typography variant="h6" color="inherit">
+                Instadoggos
+              </Typography>
+            </Toolbar>
+          </AppBar>
+        </div>
+      </Grid>
+    </Container>
   );
 }
