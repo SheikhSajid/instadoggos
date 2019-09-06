@@ -5,11 +5,11 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Fab from '@material-ui/core/Fab';
 import ReplayIcon from '@material-ui/icons/Replay';
-import InfoIcon from '@material-ui/icons/Info';
 import ShuffleIcon from '@material-ui/icons/Shuffle';
 import { Grid } from '@material-ui/core';
 import shuffle from 'shuffle-array';
 import { fetchUrls } from '../utils';
+import InfoModal from './InfoModal';
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -58,9 +58,7 @@ export default function BottomBar(props) {
       >
         <Toolbar>
           <Grid container justify="center">
-            <IconButton color="inherit">
-              <InfoIcon />
-            </IconButton>
+            <InfoModal />
             <Fab
               color="secondary"
               aria-label="add"
