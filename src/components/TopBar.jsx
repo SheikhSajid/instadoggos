@@ -9,27 +9,21 @@ import {
 } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1
+  topBar: {
+    marginBottom: theme.spacing(3)
   }
 }));
 
-export default function DenseAppBar() {
+export default function TopBar(props) {
   const classes = useStyles();
 
   return (
-    <Container maxWidth="xl">
-      <Grid item sm={12}>
-        <div className={classes.root}>
-          <AppBar position="static">
-            <Toolbar variant="dense">
-              <Typography variant="h6" color="inherit">
-                Instadoggos
-              </Typography>
-            </Toolbar>
-          </AppBar>
-        </div>
-      </Grid>
-    </Container>
+    <AppBar {...props} className={classes.topBar} position="static">
+      <Toolbar variant="dense">
+        <Typography variant="h6" color="inherit">
+          Instadoggos
+        </Typography>
+      </Toolbar>
+    </AppBar>
   );
 }
