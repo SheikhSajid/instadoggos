@@ -50,7 +50,8 @@ export default function Thumbnail({ url }) {
     .split('.')
     .pop()
     .toLowerCase();
-  const extIsImage = extension === 'jpg' || extension === 'png';
+  const extIsImage =
+    extension === 'jpg' || extension === 'png' || extension === 'gif';
   const extIsVideo = extension === 'mp4';
 
   if (extIsImage) return <ImageContainer url={url} />;
