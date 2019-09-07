@@ -55,7 +55,14 @@ export default function TransitionsModal() {
         <Fade in={open}>
           <div className={classes.paper}>
             <h2 id="transition-modal-title">Instadoggo</h2>
-            <p id="transition-modal-description">Github: sdfdsds</p>
+            <p id="transition-modal-description">
+              Made by Sk Sajidul Kadir
+              <br />
+              Github:{' '}
+              <a href="https://github.com/SheikhSajid/instadoggos">
+                https://github.com/SheikhSajid/instadoggos
+              </a>
+            </p>
           </div>
         </Fade>
       </Modal>
