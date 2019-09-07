@@ -20,6 +20,7 @@ export default function Album({ imageUrls }) {
       <Grid container>
         {imageUrls.map(url => (
           <Grid
+            data-testid={url}
             container
             justify="center"
             key={url}
