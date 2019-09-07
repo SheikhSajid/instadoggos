@@ -72,7 +72,11 @@ export default function BottomBar(props) {
             </Tooltip>
 
             <Tooltip title="Shuffle">
-              <IconButton onClick={shuffleHandler} color="inherit">
+              <IconButton
+                data-testid="shuffle"
+                onClick={shuffleHandler}
+                color="inherit"
+              >
                 <ShuffleIcon />
               </IconButton>
             </Tooltip>
