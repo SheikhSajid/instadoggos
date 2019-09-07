@@ -26,11 +26,8 @@ describe('BottomBar', () => {
       expect(shuffle).toHaveBeenCalledWith(imageUrls, { copy: true });
     });
 
-    it('calls setImageUrls to set the shuffled list of urls', () => {
+    it('calls setImageUrls with a shuffled list of existing URLs', () => {
       expect(setImageUrls).toHaveBeenCalledTimes(1);
-    });
-
-    it('shuffles the existing list of URLs in the imageUrls array', () => {
       expect(setImageUrls).toHaveBeenCalledWith(shuffledArr);
     });
   });
