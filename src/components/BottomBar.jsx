@@ -62,6 +62,7 @@ export default function BottomBar(props) {
             <InfoModal />
             <Tooltip title="See New Doggos">
               <Fab
+                data-testid="reload"
                 color="secondary"
                 aria-label="add"
                 className={classes.fabButton}
